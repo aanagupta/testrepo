@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "this is first prog for execution"
+echo "this is first prog for execution" >> $HOME/test.$$
