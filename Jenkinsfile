@@ -18,7 +18,7 @@ agent any
                 }
               }
            steps {
-       		sh 'Deployment Done'
+       		sh 'echo "Deployment Done"'
      	        }
     	 }
   	}
