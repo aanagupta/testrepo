@@ -1,28 +1,12 @@
 pipeline {
-agent any 
-	stages {
-	stage('Build') { 
-	   steps { 
-		sh '/usr/bin/ls' 
-	        }
-	 }
-        stage('Test'){
-	   steps {
-		sh '/bin/uptime'
-		}
-         }
-        stage('Deploy') {
-	   when {
-	  expression {
-		 currentBuild.result == null || currentBuild.result == 'SUCCESS'
-                }
-              }
+    agent {
+      docker { image 'node:7-alpine' }
+     }
+  stages {
+   stage('Test') {
            steps {
-       		sh """
-       		echo Deployment Done
-		echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-		"""
-     	        }
-    	 }
-  	}
+            sh 'node --version'
+           }
+    }
+    }
 }
