@@ -1,12 +1,12 @@
 node {
 stage('Build') {
   script {
-	echo Creating test file > /tmp/test.$$
+	sh "/usr/bin/ls"
   }
  }
 stage('Test') {
  script {
-    echo "Testing in progess" >> /tmp/testing.$$
+    sh "/bin/uptime"
  }
 }
 }
