@@ -6,11 +6,7 @@ stage('Build') {
  }
 stage('Test') {
  script {
-	if [ -e /tmp/test.$$ ]
-        then
-          echo found
-        else
-          echo Not Found
+    echo "Testing in progess" >> /tmp/testing.$$
  }
 }
 }
