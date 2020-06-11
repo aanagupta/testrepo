@@ -8,13 +8,18 @@ agent any
 	 }
         stage('Test'){
 	   steps {
-		sh 'make check'
+		sh '/bin/uptime'
 		}
          }
         stage('Deploy') {
+	   when {
+	  expression {
+		 currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+              }
            steps {
-       		sh 'make publish'
-     		}
+       		sh 'Deployment Done'
+     	        }
     	 }
   	}
 }
